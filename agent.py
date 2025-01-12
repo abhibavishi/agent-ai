@@ -1,7 +1,6 @@
 import streamlit as st
 from langchain_openai import AzureChatOpenAI
-from browser_use import Agent, Browser
-from playwright.async_api import BrowserContext
+from browser_use import Agent
 import asyncio
 import os
 from dotenv import load_dotenv
@@ -76,11 +75,9 @@ def initialize_llm():
 
 async def run_agent_task(task):
     """Execute the task using the browser agent."""
-    browser = Browser()
     agent = Agent(
         task=task,
         llm=initialize_llm(),
-        browser=browser
     )
     result = await agent.run()
     formatted_result = AgentFormatter.format_final_output(result)
@@ -138,6 +135,12 @@ def main():
                 # Display the final result
                 st.success("Task completed!")
                 st.markdown("""
+                <div class="result-container">
+                    <div class="result-image">
+                        """)
+                st.image("agent_history.gif", caption="Agent History")
+                st.markdown("""
+                    </div>
                     <div class="result-text">
                         <h3>🎯 Result</h3>
                         {}
