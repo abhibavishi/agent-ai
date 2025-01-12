@@ -138,12 +138,6 @@ def main():
                 # Display the final result
                 st.success("Task completed!")
                 st.markdown("""
-                <div class="result-container">
-                    <div class="result-image">
-                        """)
-                st.image("agent_history.gif", caption="Agent History")
-                st.markdown("""
-                    </div>
                     <div class="result-text">
                         <h3>🎯 Result</h3>
                         {}
