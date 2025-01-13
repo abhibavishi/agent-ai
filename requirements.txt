@@ -77,7 +77,8 @@ orjson==3.10.14
 packaging==24.2
 pandas==2.2.3
 pillow==11.1.0
-playwright
+playwright>=1.37.0
+playwright[browsers]
 posthog==3.7.5
 propcache==0.2.1
 proto-plus==1.25.0
